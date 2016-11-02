@@ -497,7 +497,7 @@ extern char *getwd (char *);
 #endif
 
 #if defined (HAVE_DECL_SBRK) && !HAVE_DECL_SBRK
-extern void *sbrk (int);
+extern void *sbrk (intptr_t);
 #endif
 
 #if defined (HAVE_DECL_SETENV) && !HAVE_DECL_SETENV

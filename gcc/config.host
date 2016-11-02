@@ -295,4 +295,13 @@ case ${host} in
     host_exeext=.exe
     host_can_use_collect2=no
     ;;
+  i[34567]86-*-redox* | x86_64-*-redox*)
+    host_xm_file=i386/xm-redox.h
+    ;;
+  aarch64-*-redox*)
+    host_xm_file=aarch64/xm-redox.h
+    ;;
+  riscv64*-*-redox*)
+    host_xm_file=riscv/xm-redox.h
+    ;;
 esac
