@@ -193,6 +193,12 @@ case "${host}" in
     AC_CHECK_FUNCS(aligned_alloc posix_memalign memalign _aligned_malloc)
     AM_ICONV
     ;;
+  *-redox*)
+    GLIBCXX_CHECK_COMPILER_FEATURES
+    GLIBCXX_CHECK_LINKER_FEATURES
+    GLIBCXX_CHECK_MATH_SUPPORT
+    GLIBCXX_CHECK_STDLIB_SUPPORT
+    ;;
   *-mingw32*)
     GLIBCXX_CHECK_LINKER_FEATURES
     GLIBCXX_CHECK_MATH_SUPPORT
