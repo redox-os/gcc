@@ -141,6 +141,12 @@ case "${host}" in
     AC_SUBST(SECTION_FLAGS)
     ;;
 
+  aarch64-*-redox*)
+    SECTION_FLAGS='-ffunction-sections -fdata-sections'
+    AC_SUBST(SECTION_FLAGS)
+    AC_DEFINE(HAVE_ALIGNED_ALLOC)
+    ;;
+
   *-hpux*)
     SECTION_FLAGS='-ffunction-sections -fdata-sections'
     AC_SUBST(SECTION_FLAGS)
@@ -193,6 +199,13 @@ case "${host}" in
     AC_CHECK_FUNCS(__cxa_thread_atexit_impl)
     AC_CHECK_FUNCS(aligned_alloc posix_memalign memalign _aligned_malloc)
     AM_ICONV
+    ;;
+  *-redox*)
+    GLIBCXX_CHECK_COMPILER_FEATURES
+    GLIBCXX_CHECK_LINKER_FEATURES
+    GLIBCXX_CHECK_MATH_SUPPORT
+    GLIBCXX_CHECK_STDLIB_SUPPORT
+    AC_CHECK_FUNCS(aligned_alloc posix_memalign memalign _aligned_malloc)
     ;;
   *-mingw32*)
     GLIBCXX_CHECK_LINKER_FEATURES

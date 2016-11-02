@@ -83,5 +83,14 @@ case $build in
     build_exeext=.exe
     build_install_headers_dir=install-headers-cp
     ;;
+  i[34567]86-*-redox* | x86_64-*-redox* )
+    build_xm_file=i386/xm-redox.h
+    ;;
+  aarch64-*-redox*)
+    build_xm_file=aarch64/xm-redox.h
+    ;;
+  riscv64*-*-redox*)
+    build_xm_file=riscv/xm-redox.h
+    ;;
 esac
 

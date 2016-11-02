@@ -663,6 +663,28 @@ x86_64-*-kfreebsd*-gnu)
 	tmake_file="${tmake_file} i386/t-crtpc t-crtfm i386/t-crtstuff t-dfprules"
 	tm_file="${tm_file} i386/elf-lib.h"
 	;;
+i[34567]86-*-redox*)
+	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
+	tmake_file="$tmake_file i386/t-crtstuff t-crtstuff-pic t-libgcc-pic"
+	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
+	;;
+x86_64-*-redox*)
+	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
+	tmake_file="$tmake_file i386/t-crtstuff t-crtstuff-pic t-libgcc-pic"
+	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
+	;;
+aarch64-*-redox*)
+	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
+	tmake_file="$tmake_file t-crtstuff-pic t-libgcc-pic"
+	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
+	md_unwind_header=aarch64/aarch64-unwind.h
+	;;
+riscv64*-*-redox*)
+	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
+	tmake_file="$tmake_file t-crtstuff-pic t-libgcc-pic"
+	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
+	md_unwind_header=riscv64/riscv64-unwind.h
+	;;
 i[34567]86-pc-msdosdjgpp*)
 	;;
 i[34567]86-*-lynxos*)

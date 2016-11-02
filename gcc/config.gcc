@@ -805,6 +805,29 @@ case ${target} in
   tmake_file="${tmake_file} t-glibc"
   target_has_targetcm=yes
   ;;
+*-*-redox*)
+  gas=yes
+  gnu_ld=yes
+  default_use_cxa_atexit=yes
+  tmake_file="${tmake_file} t-slibgcc"
+  extra_options="${extra_options} redox.opt"
+  case ${enable_threads} in
+    yes)
+      thread_file='posix'
+      ;;
+  esac
+  case ${target} in
+    i[34567]86-*-redox* | x86_64-*-redox*)
+      xm_file=i386/xm-redox.h
+      ;;
+    aarch64-*-redox*)
+      xm_file=aarch64/xm-redox.h
+      ;;
+    riscv64*-*-redox*)
+      xm_file=riscv/xm-redox.h
+      ;;
+  esac
+  ;;
 *-*-netbsd*)
   tm_p_file="${tm_p_file} netbsd-protos.h"
   tmake_file="t-netbsd t-slibgcc"
@@ -1637,6 +1660,20 @@ x86_64-*-linux* | x86_64-*-kfreebsd*-gnu)
 		esac
 	done
 	TM_MULTILIB_CONFIG=`echo $TM_MULTILIB_CONFIG | sed 's/^,//'`
+	;;
+aarch64-*-redox*)
+	tm_file="${tm_file} dbxelf.h elfos.h aarch64/aarch64-elf.h aarch64/aarch64-elf-raw.h redox.h newlib-stdint.h"
+	tmake_file="${tmake_file} ${cpu_type}/t-aarch64"
+	;;
+i[34567]86-*-redox*)
+	tm_file="${tm_file} i386/unix.h i386/att.h dbxelf.h elfos.h i386/i386elf.h redox.h newlib-stdint.h"
+	;;
+riscv64*-*-redox*)
+	tm_file="${tm_file} dbxelf.h elfos.h riscv/elf.h redox.h newlib-stdint.h"
+	tmake_file="${tmake_file} ${cpu_type}/t-riscv"
+	;;
+x86_64-*-redox*)
+	tm_file="${tm_file} i386/unix.h i386/att.h dbxelf.h elfos.h i386/i386elf.h i386/x86-64.h redox.h newlib-stdint.h"
 	;;
 i[34567]86-pc-msdosdjgpp*)
 	xm_file=i386/xm-djgpp.h
