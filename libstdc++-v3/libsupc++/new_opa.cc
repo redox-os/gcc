@@ -31,7 +31,7 @@
 using std::new_handler;
 using std::bad_alloc;
 
-#if !_GLIBCXX_HAVE_ALIGNED_ALLOC
+#if 0
 #if _GLIBCXX_HAVE__ALIGNED_MALLOC
 #define aligned_alloc(al,sz) _aligned_malloc(sz,al)
 #elif _GLIBCXX_HAVE_POSIX_MEMALIGN
