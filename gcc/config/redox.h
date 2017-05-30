@@ -5,10 +5,10 @@
 #define LIB_SPEC "-lc"
 
 #undef STARTFILE_SPEC
-#define STARTFILE_SPEC "crt0.o%s"
+#define STARTFILE_SPEC "crt0.o%s crti.o%s crtbegin.o%s"
 
 #undef ENDFILE_SPEC
-#define ENDFILE_SPEC   ""
+#define ENDFILE_SPEC   "crtend.o%s crtn.o%s"
 
 #undef  NO_IMPLICIT_EXTERN_C
 #define NO_IMPLICIT_EXTERN_C 1
