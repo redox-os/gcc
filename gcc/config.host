@@ -287,4 +287,7 @@ case ${host} in
     host_exeext=.exe
     host_can_use_collect2=no
     ;;
+  *-*-redox*)
+    host_xm_file=i386/xm-redox.h
+    ;;
 esac
