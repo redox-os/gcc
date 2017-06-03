@@ -777,6 +777,7 @@ case ${target} in
   gas=yes
   gnu_ld=yes
   default_use_cxa_atexit=yes
+  xm_file=i386/xm-redox.h
   ;;
 *-*-netbsd*)
   tmake_file="t-slibgcc"
