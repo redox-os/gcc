@@ -2055,8 +2055,7 @@ x86_64-*-linux* | x86_64-*-kfreebsd*-gnu)
 	TM_MULTILIB_CONFIG=`echo $TM_MULTILIB_CONFIG | sed 's/^,//'`
 	;;
 aarch64-*-redox*)
-	tm_file="${tm_file} dbxelf.h elfos.h newlib-stdint.h"
-	tm_file="${tm_file} aarch64/aarch64-elf.h aarch64/aarch64-elf-raw.h"
+	tm_file="${tm_file} dbxelf.h elfos.h aarch64/aarch64-elf.h aarch64/aarch64-elf-raw.h redox.h newlib-stdint.h"
 	;;
 i[34567]86-*-redox*)
 	tm_file="${tm_file} i386/unix.h i386/att.h dbxelf.h elfos.h i386/i386elf.h redox.h newlib-stdint.h"
