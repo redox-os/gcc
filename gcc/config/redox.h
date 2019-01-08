@@ -2,7 +2,7 @@
 #define TARGET_REDOX 1
 
 #undef LIB_SPEC
-#define LIB_SPEC "-lc -lpthread"
+#define LIB_SPEC "-lc"
 
 #undef STARTFILE_SPEC
 #define STARTFILE_SPEC "crt0.o%s crti.o%s crtbegin.o%s"
