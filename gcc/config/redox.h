@@ -4,6 +4,9 @@
 #undef LIB_SPEC
 #define LIB_SPEC "-lc"
 
+#undef LINK_SPEC
+#define LINK_SPEC "%{shared:-shared} %{static:-static} %{!shared: %{!static: %{rdynamic:-export-dynamic}}}"
+
 #undef STARTFILE_SPEC
 #define STARTFILE_SPEC "crt0.o%s crti.o%s crtbegin.o%s"
 
