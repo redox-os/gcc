@@ -889,6 +889,12 @@ case ${target} in
   gas=yes
   gnu_ld=yes
   default_use_cxa_atexit=yes
+  tmake_file="${tmake_file} t-slibgcc"
+  case ${enable_threads} in
+    yes)
+      thread_file='posix'
+      ;;
+  esac
   case ${target} in
     i[34567]86-*-redox* | x86_64-*-redox*)
       xm_file=i386/xm-redox.h
