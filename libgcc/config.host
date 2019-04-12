@@ -760,17 +760,17 @@ x86_64-*-kfreebsd*-gnu)
 i[34567]86-*-redox*)
 	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
 	tmake_file="$tmake_file i386/t-crtstuff t-crtstuff-pic t-libgcc-pic"
-	tmake_file="$tmake_file t-slibgcc t-glibgcc-gld t-slibgcc-elf-ver"
+	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
 	;;
 x86_64-*-redox*)
 	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
 	tmake_file="$tmake_file i386/t-crtstuff t-crtstuff-pic t-libgcc-pic"
-	tmake_file="$tmake_file t-slibgcc t-glibgcc-gld t-slibgcc-elf-ver"
+	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
 	;;
 aarch64-*-redox*)
 	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
 	tmake_file="$tmake_file t-crtstuff-pic t-libgcc-pic"
-	tmake_file="$tmake_file t-slibgcc t-glibgcc-gld t-slibgcc-elf-ver"
+	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
 	md_unwind_header=aarch64/aarch64-unwind.h
 	;;
 i[34567]86-pc-msdosdjgpp*)
