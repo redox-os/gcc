@@ -1137,7 +1137,7 @@ fi
 # Invoke $ECHO with all args, space-separated.
 func_echo_all ()
 {
-    $ECHO "$*" 
+    $ECHO "$*"
 }
 
 case "$ECHO" in
@@ -1746,6 +1746,11 @@ else
     lt_cv_dlopen_libs=
     lt_cv_dlopen_self=yes
     ])
+    ;;
+
+  redox*)
+    lt_cv_dlopen="dlopen"
+    lt_cv_dlopen_libs=
     ;;
 
   *)
