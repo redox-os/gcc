@@ -5440,6 +5440,10 @@ rdos*)
   lt_cv_deplibs_check_method=pass_all
   ;;
 
+redox*)
+  lt_cv_deplibs_check_method=pass_all
+  ;;
+
 solaris*)
   lt_cv_deplibs_check_method=pass_all
   ;;
@@ -10218,6 +10222,16 @@ rdos*)
   dynamic_linker=no
   ;;
 
+redox*)
+  version_type=linux
+  need_lib_prefix=no
+  need_version=no
+  library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}$major $libname${shared_ext}'
+  soname_spec='${libname}${release}${shared_ext}$major'
+  shlibpath_var=LD_LIBRARY_PATH
+  hardcode_into_libs=yes
+  ;;
+
 solaris*)
   version_type=linux
   need_lib_prefix=no
@@ -10546,6 +10560,11 @@ else
 fi
 
     ;;
+    
+  redox*)
+    lt_cv_dlopen="dlopen"
+    lt_cv_dlopen_libs=
+    ;;
 
   *)
     ac_fn_c_check_func "$LINENO" "shl_load" "ac_cv_func_shl_load"
@@ -10771,7 +10790,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 10784 "configure"
+#line 10793 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -10877,7 +10896,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 10890 "configure"
+#line 10899 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H

@@ -6978,6 +6978,10 @@ rdos*)
   lt_cv_deplibs_check_method=pass_all
   ;;
 
+redox*)
+  lt_cv_deplibs_check_method=pass_all
+  ;;
+
 solaris*)
   lt_cv_deplibs_check_method=pass_all
   ;;
@@ -12145,7 +12149,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 12133 "configure"
+#line 12152 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -12251,7 +12255,7 @@ else
   lt_dlunknown=0; lt_dlno_uscore=1; lt_dlneed_uscore=2
   lt_status=$lt_dlunknown
   cat > conftest.$ac_ext <<_LT_EOF
-#line 12239 "configure"
+#line 12258 "configure"
 #include "confdefs.h"
 
 #if HAVE_DLFCN_H
@@ -15271,6 +15275,16 @@ rdos*)
   dynamic_linker=no
   ;;
 
+redox*)
+  version_type=linux
+  need_lib_prefix=no
+  need_version=no
+  library_names_spec='${libname}${release}${shared_ext}$versuffix ${libname}${release}${shared_ext}$major $libname${shared_ext}'
+  soname_spec='${libname}${release}${shared_ext}$major'
+  shlibpath_var=LD_LIBRARY_PATH
+  hardcode_into_libs=yes
+  ;;
+
 solaris*)
   version_type=linux
   need_lib_prefix=no
@@ -15933,7 +15947,7 @@ $as_echo "$glibcxx_cv_atomic_long_long" >&6; }
   # Fake what AC_TRY_COMPILE does.
 
     cat > conftest.$ac_ext << EOF
-#line 15921 "configure"
+#line 15950 "configure"
 int main()
 {
   typedef bool atomic_type;
@@ -15968,7 +15982,7 @@ $as_echo "$glibcxx_cv_atomic_bool" >&6; }
     rm -f conftest*
 
     cat > conftest.$ac_ext << EOF
-#line 15956 "configure"
+#line 15985 "configure"
 int main()
 {
   typedef short atomic_type;
@@ -16003,7 +16017,7 @@ $as_echo "$glibcxx_cv_atomic_short" >&6; }
     rm -f conftest*
 
     cat > conftest.$ac_ext << EOF
-#line 15991 "configure"
+#line 16020 "configure"
 int main()
 {
   // NB: _Atomic_word not necessarily int.
@@ -16039,7 +16053,7 @@ $as_echo "$glibcxx_cv_atomic_int" >&6; }
     rm -f conftest*
 
     cat > conftest.$ac_ext << EOF
-#line 16027 "configure"
+#line 16056 "configure"
 int main()
 {
   typedef long long atomic_type;
@@ -16192,7 +16206,7 @@ $as_echo "mutex" >&6; }
   # unnecessary for this test.
 
     cat > conftest.$ac_ext << EOF
-#line 16180 "configure"
+#line 16209 "configure"
 int main()
 {
   _Decimal32 d1;
@@ -16234,7 +16248,7 @@ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
   # unnecessary for this test.
 
     cat > conftest.$ac_ext << EOF
-#line 16222 "configure"
+#line 16251 "configure"
 template<typename T1, typename T2>
   struct same
   { typedef T2 type; };
@@ -16268,7 +16282,7 @@ $as_echo "$enable_int128" >&6; }
     rm -f conftest*
 
     cat > conftest.$ac_ext << EOF
-#line 16256 "configure"
+#line 16285 "configure"
 template<typename T1, typename T2>
   struct same
   { typedef T2 type; };
@@ -60383,6 +60397,19 @@ done
 
 
   CXXFLAGS="$ac_save_CXXFLAGS"
+
+    for ac_func in aligned_alloc posix_memalign memalign _aligned_malloc
+do :
+  as_ac_var=`$as_echo "ac_cv_func_$ac_func" | $as_tr_sh`
+  ac_fn_c_check_func "$LINENO" "$ac_func" "$as_ac_var"
+  eval as_val=\$$as_ac_var
+  if test "x$as_val" = x""yes; then :
+    cat >>confdefs.h <<_ACEOF
+#define `$as_echo "HAVE_$ac_func" | $as_tr_cpp` 1
+_ACEOF
+
+fi
+done
 
     ;;
   *-mingw32*)
