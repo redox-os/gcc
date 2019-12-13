@@ -1659,6 +1659,7 @@ x86_64-*-linux* | x86_64-*-kfreebsd*-gnu)
 	;;
 aarch64-*-redox*)
 	tm_file="${tm_file} dbxelf.h elfos.h aarch64/aarch64-elf.h aarch64/aarch64-elf-raw.h redox.h newlib-stdint.h"
+	tmake_file="${tmake_file} ${cpu_type}/t-aarch64"
 	;;
 i[34567]86-*-redox*)
 	tm_file="${tm_file} i386/unix.h i386/att.h dbxelf.h elfos.h i386/i386elf.h redox.h newlib-stdint.h"
