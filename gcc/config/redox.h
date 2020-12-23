@@ -1,8 +1,11 @@
 #undef TARGET_REDOX
 #define TARGET_REDOX 1
 
+#undef CPP_SPEC
+#define CPP_SPEC "%{posix:-D_POSIX_SOURCE} %{pthread:-D_REENTRANT}"
+
 #undef LIB_SPEC
-#define LIB_SPEC "-lc %{!static:-lgcc_s}"
+#define LIB_SPEC "%{pthread:-lpthread} -lc %{!static:-lgcc_s}"
 
 #undef LINK_SPEC
 #define LINK_SPEC "%{shared:-shared} %{static:-static} %{!shared: %{!static: %{rdynamic:-export-dynamic}}}"
