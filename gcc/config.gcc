@@ -890,6 +890,7 @@ case ${target} in
   gnu_ld=yes
   default_use_cxa_atexit=yes
   tmake_file="${tmake_file} t-slibgcc"
+  extra_options="${extra_options} redox.opt"
   case ${enable_threads} in
     yes)
       thread_file='posix'
