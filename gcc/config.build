@@ -89,5 +89,8 @@ case $build in
   aarch64-*-redox*)
     build_xm_file=aarch64/xm-redox.h
     ;;
+  riscv64*-*-redox*)
+    build_xm_file=riscv/xm-redox.h
+    ;;
 esac
 
