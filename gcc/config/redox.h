@@ -16,9 +16,6 @@
 #undef ENDFILE_SPEC
 #define ENDFILE_SPEC   "%{shared|pie:crtendS.o%s;:crtend.o%s} crtn.o%s"
 
-#undef  NO_IMPLICIT_EXTERN_C
-#define NO_IMPLICIT_EXTERN_C 1
-
 #undef TARGET_OS_CPP_BUILTINS
 #define TARGET_OS_CPP_BUILTINS()      \
   do {                                \
