@@ -5,16 +5,16 @@
 #define CPP_SPEC "%{posix:-D_POSIX_SOURCE} %{pthread:-D_REENTRANT}"
 
 #undef LIB_SPEC
-#define LIB_SPEC "%{pthread:-lpthread} -lc %{!static:-lgcc_s}"
+#define LIB_SPEC "%{pthread:-lpthread} -lc %{shared:-lgcc_s}"
 
 #undef LINK_SPEC
-#define LINK_SPEC "%{shared:-shared} %{static:-static} %{!shared: %{!static: %{rdynamic:-export-dynamic}}}"
+#define LINK_SPEC "%{shared:-shared} %{!shared:-static} %{!shared: %{!static: %{rdynamic:-export-dynamic}}}"
 
 #undef STARTFILE_SPEC
 #define STARTFILE_SPEC "%{!shared:crt0.o%s} crti.o%s %{shared|pie:crtbeginS.o%s;:crtbegin.o%s}"
 
 #undef ENDFILE_SPEC
-#define ENDFILE_SPEC   "%{shared|pie:crtendS.o%s;:crtend.o%s} crtn.o%s"
+#define ENDFILE_SPEC "%{shared|pie:crtendS.o%s;:crtend.o%s} crtn.o%s"
 
 #undef TARGET_OS_CPP_BUILTINS
 #define TARGET_OS_CPP_BUILTINS()      \
