@@ -110,6 +110,7 @@ ASM_MISA_SPEC
 "%{!march=*:%{mcpu=*:%:riscv_expand_arch_from_cpu(%*)}} "
 
 #define TARGET_DEFAULT_CMODEL CM_MEDLOW
+#define TARGET_DEFAULT_SMALL_DATA_SIZE 8
 
 #define LOCAL_LABEL_PREFIX	"."
 #define USER_LABEL_PREFIX	""

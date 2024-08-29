@@ -25,3 +25,6 @@
     builtin_assert ("system=unix");   \
     builtin_assert ("system=posix");   \
   } while(0);
+
+#undef TARGET_DEFAULT_SMALL_DATA_SIZE
+#define TARGET_DEFAULT_SMALL_DATA_SIZE 0
