@@ -306,6 +306,11 @@ case ${host} in
       ;;
   esac
   ;;
+*-*-redox*)
+  extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
+  tmake_file="$tmake_file t-crtstuff-pic t-libgcc-pic"
+  tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
+  ;;
 *-*-rtems*)
   tmake_file="$tmake_file t-rtems"
   extra_parts="crtbegin.o crtend.o"
@@ -776,26 +781,19 @@ x86_64-*-gnu*)
 	md_unwind_header=i386/gnu-unwind.h
 	;;
 i[34567]86-*-redox*)
-	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
-	tmake_file="$tmake_file i386/t-crtstuff t-crtstuff-pic t-libgcc-pic"
-	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
+	tmake_file="$tmake_file i386/t-crtstuff"
 	;;
 x86_64-*-redox*)
-	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
-	tmake_file="$tmake_file i386/t-crtstuff t-crtstuff-pic t-libgcc-pic"
-	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
+	tmake_file="$tmake_file i386/t-crtstuff"
 	;;
 aarch64-*-redox*)
-	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
-	tmake_file="$tmake_file t-crtstuff-pic t-libgcc-pic"
-	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
-	tmake_file="$tmake_file ${cpu_type}/t-softfp t-softfp"
+	extra_parts="$extra_parts crtfastmath.o"
+	tmake_file="${tmake_file} ${cpu_type}/t-aarch64"
+	tmake_file="${tmake_file} ${cpu_type}/t-lse t-slibgcc-libgcc"
+	tmake_file="${tmake_file} ${cpu_type}/t-softfp t-softfp t-crtfm"
 	md_unwind_header=aarch64/aarch64-unwind.h
 	;;
 riscv64*-*-redox*)
-	extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o crti.o crtn.o"
-	tmake_file="$tmake_file t-crtstuff-pic t-libgcc-pic"
-	tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
 	;;
 i[34567]86-pc-msdosdjgpp*)
 	;;
