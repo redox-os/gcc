@@ -794,6 +794,7 @@ aarch64-*-redox*)
 	md_unwind_header=aarch64/aarch64-unwind.h
 	;;
 riscv64*-*-redox*)
+	tmake_file="${tmake_file} riscv/t-softfp${host_address} t-softfp riscv/t-elf riscv/t-elf${host_address}"
 	;;
 i[34567]86-pc-msdosdjgpp*)
 	;;
