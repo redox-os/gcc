@@ -28,3 +28,5 @@
 
 #undef TARGET_DEFAULT_SMALL_DATA_SIZE
 #define TARGET_DEFAULT_SMALL_DATA_SIZE 0
+
+#define TARGET_ASM_FILE_END file_end_indicate_exec_stack
