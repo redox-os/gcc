@@ -141,7 +141,7 @@ case "${host}" in
     AC_SUBST(SECTION_FLAGS)
     ;;
 
-  aarch64-*-redox*)
+  aarch64-*-redox* | riscv64*-*-redox*)
     SECTION_FLAGS='-ffunction-sections -fdata-sections'
     AC_SUBST(SECTION_FLAGS)
     AC_DEFINE(HAVE_ALIGNED_ALLOC)
