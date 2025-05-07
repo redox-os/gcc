@@ -38,4 +38,7 @@
 // workaround in gthr-posix.h and at link-time for static linking.
 #define _GLIBCXX_GTHREAD_USE_WEAK 0
 
+// Causes issues on Redox
+#define _GLIBCXX_USE_WEAK_REF 0
+
 #endif

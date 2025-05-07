@@ -931,6 +931,7 @@ case ${target} in
   gas=yes
   gnu_ld=yes
   default_use_cxa_atexit=yes
+  gcc_cv_initfini_array=yes
   tmake_file="${tmake_file} t-slibgcc"
   extra_options="${extra_options} redox.opt"
   case ${enable_threads} in
