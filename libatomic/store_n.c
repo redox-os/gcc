@@ -25,7 +25,7 @@
 #include "libatomic_i.h"
 
 
-/* If we support the builtin, just use it.  */
+/* Forcibly disabled on redox
 #if !DONE && SIZE(HAVE_ATOMIC_LDST)
 void
 SIZE(libat_store) (UTYPE *mptr, UTYPE newval, int smodel)
@@ -33,7 +33,6 @@ SIZE(libat_store) (UTYPE *mptr, UTYPE newval, int smodel)
   if (maybe_specialcase_relaxed(smodel))
     __atomic_store_n (mptr, newval, __ATOMIC_RELAXED);
   else if (maybe_specialcase_acqrel(smodel))
-    /* Note that ACQ and ACQ_REL are not valid for store.  */
     __atomic_store_n (mptr, newval, __ATOMIC_RELEASE);
   else
     __atomic_store_n (mptr, newval, __ATOMIC_SEQ_CST);

@@ -53,10 +53,14 @@ struct lock
 	   : 0];
 };
 
+// https://gcc.gnu.org/bugzilla/show_bug.cgi?id=53119
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wmissing-braces"
 #define NLOCKS		(PAGE_SIZE / WATCH_SIZE)
 static struct lock locks[NLOCKS] = {
   [0 ... NLOCKS-1].mutex = PTHREAD_MUTEX_INITIALIZER
 };
+#pragma GCC diagnostic pop
 
 static inline uintptr_t 
 addr_hash (void *ptr)
