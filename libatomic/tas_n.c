@@ -25,8 +25,8 @@
 #include "libatomic_i.h"
 
 
-/* Forcibly disabled on redox
-#if !DONE && SIZE(HAVE_ATOMIC_TAS)
+/* If we support the builtin, just use it.  */
+#if !DONE && SIZE(HAVE_ATOMIC_TAS) && !defined(__redox__)
 bool
 SIZE(libat_test_and_set) (UTYPE *mptr, int smodel)
 {

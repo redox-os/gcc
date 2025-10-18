@@ -25,8 +25,8 @@
 #include "libatomic_i.h"
 
 
-/* Forcibly disabled on redox
-#if !DONE && SIZE(HAVE_ATOMIC_EXCHANGE)
+/* If we support the builtin, just use it.  */
+#if !DONE && SIZE(HAVE_ATOMIC_EXCHANGE) && !defined(__redox__)
 UTYPE
 SIZE(libat_exchange) (UTYPE *mptr, UTYPE newval, int smodel)
 {

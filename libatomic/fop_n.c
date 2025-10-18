@@ -31,8 +31,8 @@
 */
 
 
-/* Forcibly disabled on redox
-#if !DONE && SIZE(HAVE_ATOMIC_FETCH_OP)
+/* If we support the builtin, just use it.  */
+#if !DONE && SIZE(HAVE_ATOMIC_FETCH_OP) && !defined(__redox__)
 UTYPE
 SIZE(C2(libat_fetch_,NAME)) (UTYPE *mptr, UTYPE opval, int smodel)
 {

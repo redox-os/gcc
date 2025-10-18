@@ -25,14 +25,15 @@
 #include "libatomic_i.h"
 
 
-/* Forcibly disabled on redox
-#if !DONE && SIZE(HAVE_ATOMIC_LDST)
+/* If we support the builtin, just use it.  */
+#if !DONE && SIZE(HAVE_ATOMIC_LDST) && !defined(__redox__)
 UTYPE
 SIZE(libat_load) (UTYPE *mptr, int smodel)
 {
   if (maybe_specialcase_relaxed(smodel))
     return __atomic_load_n (mptr, __ATOMIC_RELAXED);
   else if (maybe_specialcase_acqrel(smodel))
+    /* Note that REL and ACQ_REL are not valid for loads.  */
     return __atomic_load_n (mptr, __ATOMIC_ACQUIRE);
   else
     return __atomic_load_n (mptr, __ATOMIC_SEQ_CST);
