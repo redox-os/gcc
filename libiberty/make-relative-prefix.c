@@ -86,11 +86,7 @@ relative prefix can be found, return @code{NULL}.
 #  endif
 #  define PATH_SEPARATOR ';'
 #else
-#  if defined (__redox__)
-#    define PATH_SEPARATOR ';'
-#  else
-#    define PATH_SEPARATOR ':'
-#  endif
+#  define PATH_SEPARATOR ':'
 #endif
 
 #ifndef DIR_SEPARATOR_2
