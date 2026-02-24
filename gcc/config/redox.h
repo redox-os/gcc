@@ -29,4 +29,8 @@
 #undef TARGET_DEFAULT_SMALL_DATA_SIZE
 #define TARGET_DEFAULT_SMALL_DATA_SIZE 0
 
+/* Use int, instead of long int, for int32_t and uint32_t.  */
+#undef STDINT_LONG32
+#define STDINT_LONG32 0
+
 #define TARGET_ASM_FILE_END file_end_indicate_exec_stack
