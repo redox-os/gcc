@@ -255,7 +255,7 @@ case "${host_os}" in
   freebsd*)
     os_include_dir="os/bsd/freebsd"
     ;;
-  linux-musl*)
+  linux-musl* | linux-relibc*)
     os_include_dir="os/generic"
     ;;
   gnu* | linux* | kfreebsd*-gnu | uclinux*)
