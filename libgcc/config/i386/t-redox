@@ -1,0 +1,2 @@
+# Extra symbols for this port.
+SHLIB_MAPFILES += $(srcdir)/config/i386/libgcc-redox.ver
