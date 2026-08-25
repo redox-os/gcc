@@ -1,2 +1,5 @@
-# Extra symbols for this port.
+# Extra symbols for this port.
 SHLIB_MAPFILES += $(srcdir)/config/i386/libgcc-redox.ver
+
+# libgcc need to explicitly use x87
+HOST_LIBGCC2_CFLAGS += -mlong-double-80
