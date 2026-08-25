@@ -33,4 +33,10 @@
 #undef STDINT_LONG32
 #define STDINT_LONG32 0
 
+/* Enable __LONG_DOUBLE_128__ by default for x86_64  */
+#if TARGET_64BIT_DEFAULT
+#undef CC1_SPEC
+#define CC1_SPEC "%(cc1_cpu) %{!mlong-double-64:%{!mlong-double-80:-mlong-double-128}}"
+#endif
+
 #define TARGET_ASM_FILE_END file_end_indicate_exec_stack
