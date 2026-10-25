@@ -307,8 +307,8 @@ case ${host} in
   esac
   ;;
 *-*-redox*)
-  extra_parts="$extra_parts crtbegin.o crtbeginS.o crtend.o crtendS.o"
-  tmake_file="$tmake_file t-crtstuff-pic t-libgcc-pic"
+  extra_parts="$extra_parts crtbegin.o crtbeginS.o crtbeginT.o crtend.o crtendS.o"
+  tmake_file="$tmake_file t-crtstuff-pic t-libgcc-pic t-eh-dw2-dip"
   tmake_file="$tmake_file t-slibgcc t-slibgcc-gld t-slibgcc-elf-ver"
   ;;
 *-*-rtems*)
