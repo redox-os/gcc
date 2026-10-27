@@ -6936,7 +6936,7 @@ case "$target" in
       gcc_cv_target_dl_iterate_phdr=no
     fi
     ;;
-  *-linux-musl*)
+  *-linux-musl* | *-linux-relibc* | *-redox*)
     gcc_cv_target_dl_iterate_phdr=yes
     ;;
 esac

@@ -4,9 +4,14 @@
 #undef CPP_SPEC
 #define CPP_SPEC "%{posix:-D_POSIX_SOURCE} %{pthread:-D_REENTRANT}"
 
+// TODO: remove -lgcc_s, it should be linked "as-needed"
+//       however it will break our hack-ish toolchain bootstrap process
+//       as we're compiling bootstrap relibc without building libgcc first
 #undef LIB_SPEC
-#define LIB_SPEC "%{pthread:-lpthread} -lc %{!static:-lgcc_s}"
+#define LIB_SPEC "-lc %{!static:-lgcc_s}"
 
+// TODO: -dynamic-linker arg was missing for years, add it
+//       it when doing GCC update to prevent it changing again
 #undef LINK_SPEC
 #define LINK_SPEC "%{shared:-shared} %{static:-static} %{!shared: %{!static: %{rdynamic:-export-dynamic}}}"
 
@@ -15,6 +20,19 @@
 
 #undef ENDFILE_SPEC
 #define ENDFILE_SPEC   "%{shared|pie:crtendS.o%s;:crtend.o%s} crtn.o%s"
+
+/* Always use ELF.  */
+#undef  OBJECT_FORMAT_ELF
+#define OBJECT_FORMAT_ELF
+
+/* Use --as-needed -lgcc_s for eh support.  */
+#ifdef HAVE_LD_AS_NEEDED
+#define USE_LD_AS_NEEDED 1
+#endif
+
+#if defined(HAVE_LD_EH_FRAME_HDR)
+#define LINK_EH_SPEC "%{!static|static-pie:--eh-frame-hdr} "
+#endif
 
 #undef TARGET_OS_CPP_BUILTINS
 #define TARGET_OS_CPP_BUILTINS()      \
